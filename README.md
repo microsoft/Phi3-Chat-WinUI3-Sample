@@ -1,33 +1,34 @@
-# Project
+# [Sample] Phi3 in WinUI3 app
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## Set Up
 
-As the maintainer of this project, please make a few updates:
+You will need to have Visual Studio installed with the latest workloads for WinAppSDK and WinUI 3 development. You can find instructions on how to set up your environment [here.](https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=cs-vs-community%2Ccpp-vs-community%2Cvs-2022-17-1-a%2Cvs-2022-17-1-b#install-visual-studio)
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+Clone the repository and open the solution in Visual Studio. Before you can get started exploring the sample, you will need to get the Phi3 model files required for the project.
 
-## Contributing
+## Downloading Phi3
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+The model can be downloaded from the following link:
+- https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Huggingface models are in repositories which you can clone to get the model files. Clone the Phi3 model repository and copy the required files to the phi3 folder in the project.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Phi-3-mini-4k-instruct-onnx has 3 different versions inside it's repo. We are using the DirectML versions in this project.
+Copy the contents of the "directml/directml-int4-awq-block-128" folder to the phi3 folder in the solution.
 
-## Trademarks
+You don't need to modify the *.csproj, as it is already including all the files in the phi3 folder to the output directory.
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+The final folder structure should look like this:
+
+```
+ChatAppGenAI
+├── phi3
+│   ├── added_tokens.json
+│   ├── genai_config.json
+│   ├── model.onnx
+│   ├── model.onnx.data
+│   ├── special_tokens_map.json
+│   ├── tokenizer.json
+│   ├── tokenizer.model
+│   ├── tokenizer_config.json
+```
