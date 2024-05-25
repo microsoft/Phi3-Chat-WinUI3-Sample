@@ -96,7 +96,7 @@ namespace ChatAppGenAI
 
             Task.Run(async () =>
             {
-                var systemPrompt = "You are a helpfull assistant";
+                var systemPrompt = "You are a helpful assistant.";
                 var history = Messages.Select(m => new PhiMessage(m.Text, m.Type)).ToList();
 
                 var responseMessage = new Message("...", DateTime.Now, PhiMessageType.Assistant);
