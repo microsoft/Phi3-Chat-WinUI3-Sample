@@ -13,9 +13,11 @@ using System.Threading;
 
 namespace ChatAppGenAI
 {
-    public class Phi3Runner : IDisposable
+    public class ModelRunner : IDisposable
     {
-        private readonly string ModelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Models\directml\directml-int4-awq-block-128");
+        // huggingface-cli download microsoft/Phi-3-mini-4k-instruct-onnx --include directml/* --local-dir .
+        //private readonly string ModelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Models\directml\directml-int4-awq-block-128");
+        private readonly string ModelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Models\directml\mistralai_Mistral-7B-Instruct-v0.2");
 
         private Model? model = null;
         private Tokenizer? tokenizer = null;

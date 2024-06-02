@@ -71,7 +71,7 @@ namespace ChatAppGenAI
         [ObservableProperty]
         public bool acceptsMessages;
 
-        private Phi3Runner phi3 = new();
+        private ModelRunner phi3 = new();
         private DispatcherQueue dispatcherQueue;
 
         public VM(DispatcherQueue dispatcherQueue)
